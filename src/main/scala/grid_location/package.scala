@@ -1,7 +1,9 @@
-package object grid {
+import grid_location.Coordinates
+
+package object grid_location {
   val directions = Map("L" -> 0, "R" -> 1, "F" -> 2)
   val orientations = Map("N" -> 0, "E" -> 1, "S" -> 2, "W" -> 3)
-  val newCoordinateFnByOrientation = Map[String, Coordinate => Coordinate](
+  val newCoordinateFnByOrientation = Map[String, Coordinates => Coordinates](
     "N" -> (_.moveBy(0, 1)),
     "E" -> (_.moveBy(1, 0)),
     "S" -> (_.moveBy(0, -1)),

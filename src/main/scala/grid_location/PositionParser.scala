@@ -1,4 +1,4 @@
-package grid
+package grid_location
 
 import scala.util.control.Exception.allCatch
 
@@ -12,8 +12,8 @@ object PositionParser {
     require(maybeX.isDefined, "invalid x coordinate. must be numeric")
     require(maybeY.isDefined, "invalid y coordinate. must be numeric")
 
-    val coordinate = Coordinate(maybeX.get, maybeY.get)
+    val coordinate = Coordinates(maybeX.get, maybeY.get)
 
-    Position(coordinate, orientation)
+    GridPosition(coordinate, orientation)
   }
 }

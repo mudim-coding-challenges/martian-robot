@@ -1,14 +1,15 @@
-package grid
+package grid_location
 
+import grid_location.PositionParser
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
 
-class PositionParserSpec extends AnyFunSpec with Matchers {
+class GridPositionParserSpec extends AnyFunSpec with Matchers {
   describe("valid position string") {
     describe("when parsed") {
       it("should create position with correct coordinates and orientation") {
         val position = PositionParser.parse("3 2 N")
-        position.coordinate shouldBe Coordinate(3, 2)
+        position.coordinate shouldBe Coordinates(3, 2)
         position.orientation shouldBe "N"
       }
     }
