@@ -3,7 +3,7 @@
 Requirements to run the rover challenge is to have Java 8, Scala 2.13 and sbt installed.
 From root of the project: 
 - run `sbt clean test` for project build and test executions
-- run the challenge with `sbt run`
+- run the challenge with `sbt clean run`
 
 ### The Problem
 The surface of Mars can be modelled by a rectangular grid around which robots are able to move according to instructions provided from Earth. You are to write a program that determines each sequence of robot positions and reports the final position of the robot.
@@ -35,18 +35,18 @@ For each robot position/instruction in the input, the output should indicate the
 
 _Sample Input_
 
-53 <br/>
-11E <br />
+5 3 <br/>
+1 1 E <br />
 RFRFRFRF
 
-32N <br />
+3 2 N <br />
 FRRFLLFFRRFLL
 
-03W <br />
+0 3 W <br />
 LLFFFLFLFL
 
 _Sample Output_
 
-11E <br />
+1 1 E <br />
 3 3 N LOST <br />
-23S
+2 3 S
