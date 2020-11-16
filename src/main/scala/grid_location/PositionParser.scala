@@ -3,7 +3,7 @@ package grid_location
 import scala.util.control.Exception.allCatch
 
 object PositionParser {
-  def parse(positionStr: String) = {
+  def parse(positionStr: String): GridPosition = {
     val positionEntries = positionStr.split(" ")
     require(positionEntries.length == 3, "Incorrect position string. required format 'x y orientation'")
 

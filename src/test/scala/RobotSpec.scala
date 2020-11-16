@@ -27,7 +27,7 @@ class RobotSpec extends AnyFunSpec with Matchers {
     describe("that is detected as scent") {
       it("should avoid that direction and proceed to next set of directions") {
         val grid = Grid(Coordinates(5,3))
-        
+
         var finalPosition = Robot(grid, GridPosition(Coordinates(3, 2), "N")).move("FRRFLLFFRRFLL")
         finalPosition shouldBe "3 3 N LOST"
 
