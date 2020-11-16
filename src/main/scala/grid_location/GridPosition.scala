@@ -2,9 +2,9 @@ package grid_location
 
 sealed trait Position
 
-case class GridPosition(coordinate: Coordinates, orientation: String) extends Position {
-  require(coordinate.x >= 0 && coordinate.x <= 50, "invalid x coordinate. must be >=0 and <=50")
-  require(coordinate.y >= 0 && coordinate.y <= 50, "invalid y coordinate. must be >=0 and <=50")
+case class GridPosition(coordinates: Coordinates, orientation: String) extends Position {
+  require(coordinates.x >= 0 && coordinates.x <= 50, "invalid x coordinate. must be >=0 and <=50")
+  require(coordinates.y >= 0 && coordinates.y <= 50, "invalid y coordinate. must be >=0 and <=50")
   require(orientations.contains(orientation), s"invalid orientation '$orientation'. must be '${orientations.keys.mkString("|")}'")
 
   def change(direction: String) = {
@@ -13,14 +13,14 @@ case class GridPosition(coordinate: Coordinates, orientation: String) extends Po
     val newOrientation = newOrientationMatrix(orientations(orientation))(directions(direction))
 
     val updatedCoordinate = direction match {
-      case "F" => newCoordinateFnByOrientation(newOrientation)(coordinate)
-      case _ => coordinate
+      case "F" => newCoordinateFnByOrientation(newOrientation)(coordinates)
+      case _ => coordinates
     }
 
     GridPosition(updatedCoordinate, newOrientation)
   }
 
-  override def toString = s"$coordinate $orientation"
+  override def toString = s"$coordinates $orientation"
 }
 
-case object Lost extends Position
+case object LOST extends Position

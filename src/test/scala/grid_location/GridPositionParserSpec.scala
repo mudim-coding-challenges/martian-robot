@@ -9,7 +9,7 @@ class GridPositionParserSpec extends AnyFunSpec with Matchers {
     describe("when parsed") {
       it("should create position with correct coordinates and orientation") {
         val position = PositionParser.parse("3 2 N")
-        position.coordinate shouldBe Coordinates(3, 2)
+        position.coordinates shouldBe Coordinates(3, 2)
         position.orientation shouldBe "N"
       }
     }

@@ -1,6 +1,5 @@
 package grid_location
 
-import grid_location.Position
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
 
@@ -12,11 +11,11 @@ class GridPositionSpec extends AnyFunSpec with Matchers {
 
         var newPosition = GridPosition(currentCoordinate, "N").change("L").change("F")
         newPosition.orientation shouldBe "W"
-        newPosition.coordinate shouldBe Coordinates(0, 1)
+        newPosition.coordinates shouldBe Coordinates(0, 1)
 
         newPosition = GridPosition(currentCoordinate, "N").change("R").change("F")
         newPosition.orientation shouldBe "E"
-        newPosition.coordinate shouldBe Coordinates(2, 1)
+        newPosition.coordinates shouldBe Coordinates(2, 1)
 
         // Safe to validate explicitly than doing generic as below. Risk of missing incorrect mappings
 
