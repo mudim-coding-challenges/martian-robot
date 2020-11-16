@@ -16,8 +16,12 @@ case class Robot(grid: Grid, position: GridPosition) {
       if (directions.nonEmpty) {
         val direction = directions.head.toString
 
-        if (grid.detectScent(position, direction)) history.append(LOST)
-        else changeDirection(position.change(direction), directions.tail)
+        if (grid.isScent(position, direction)) {
+          changeDirection(position, directions.tail)
+        } else {
+          if (grid.detectScent(position, direction)) history.append(LOST)
+          else changeDirection(position.change(direction), directions.tail)
+        }
       }
     }
 

@@ -22,4 +22,6 @@ case class Grid(topRight: Coordinates) {
     coordinates.x < lowerLeft.x || coordinates.x > topRight.x ||
       coordinates.y < lowerLeft.y || coordinates.y > topRight.y
   }
+
+  def isScent(position: GridPosition, direction: String) = scents.contains((position, direction))
 }

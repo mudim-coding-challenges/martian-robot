@@ -4,9 +4,9 @@ import org.scalatest.matchers.should.Matchers
 
 class GridSpec extends AnyFunSpec with Matchers {
   describe("initialised grid ") {
-    describe("when checked for off grid") {
-      val grid = Grid(Coordinates(5,5))
+    val grid = Grid(Coordinates(5,5))
 
+    describe("when checked for off grid") {
       it("should return true if new coordinates out of top right") {
         grid.detectScent(GridPosition(Coordinates(5,5), "N"), "F") shouldBe true
       }
@@ -21,6 +21,13 @@ class GridSpec extends AnyFunSpec with Matchers {
 
       it("should return false if new coordinates at top right") {
         grid.detectScent(GridPosition(Coordinates(5,4), "N"), "F") shouldBe false
+      }
+    }
+
+    describe("when scent detected") {
+      it("should return true for subsequent scent check for given position and direction") {
+        grid.detectScent(GridPosition(Coordinates(0,0), "S"), "F") shouldBe true
+        grid.isScent(GridPosition(Coordinates(0,0), "S"), "F") shouldBe true
       }
     }
   }
